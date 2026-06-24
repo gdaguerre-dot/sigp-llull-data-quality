@@ -44,7 +44,8 @@ Errores en empleados, puestos, cargos o fechas pueden provocar:
 
 ## Arquitectura de Integración
 
-![Arquitectura](images/arquitectura_sigp_llull.png)
+<img width="2720" height="3280" alt="Arquitectura_Integracion_SIGP_LLULL" src="https://github.com/user-attachments/assets/30bc0b29-dd30-4086-b410-9fb9ba3a2a93" />
+
 
 La integración analizada sigue un esquema de consumo de servicios web donde SIGP actúa como sistema fuente y LLULL como sistema consumidor.
 
@@ -54,7 +55,8 @@ Entre ambos sistemas se incorporan controles de calidad orientados a validar la 
 
 ## Modelo de Datos
 
-![Modelo ER](images/modelo_er_sigp_llull.png)
+<img width="1536" height="1024" alt="ER_SIGP_LLULL" src="https://github.com/user-attachments/assets/4e9fd6a2-64b5-4e37-9f7e-9bd33ab1af47" />
+
 
 El modelo se encuentra normalizado hasta Tercera Forma Normal (3NF) para minimizar redundancias y garantizar la integridad referencial.
 
@@ -114,9 +116,8 @@ sql/
 ### Exploración de estructuras JSON
 
 * Estructura de getEmpleats
-* Outline de getEmpleats
 * Estructura de getLlocTreballEmpleats
-* Outline de getLlocTreballEmpleats
+
 
 ### Consultas SQL
 
@@ -183,9 +184,7 @@ images/
 ├── arquitectura_sigp_llull.png
 ├── modelo_er_sigp_llull.png
 ├── json_getEmpleats_estructura.png
-├── json_getEmpleats_outline.png
 ├── json_getLlocTreballEmpleats_estructura.png
-├── json_getLlocTreballEmpleats_outline.png
 ├── sql_01_nif_duplicados.png
 ├── sql_02_puestos_invalidos.png
 ├── sql_03_cargos_invalidos.png
