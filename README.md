@@ -119,7 +119,9 @@ HAVING COUNT(*) > 1;
 
 ### Exploración de estructuras JSON
 
-![JSON](images/json_structure.png)
+<img width="609" height="44" alt="WhatsApp Image 2026-06-24 at 12 14 55 PM" src="https://github.com/user-attachments/assets/8ac99ad4-7f5d-424c-ae9f-d96e5061475e" />
+<img width="332" height="570" alt="WhatsApp Image 2026-06-24 at 12 20 06 PM" src="https://github.com/user-attachments/assets/edd127fe-879a-4a12-87cb-7b8c8a7554a9" />
+<img width="388" height="190" alt="WhatsApp Image 2026-06-24 at 12 19 02 PM" src="https://github.com/user-attachments/assets/8204ccd3-01d5-4145-8aea-fee747704039" />
 
 ### Validaciones SQL
 
