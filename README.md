@@ -41,13 +41,16 @@ Errores en empleados, puestos o catálogos pueden provocar:
 
 ## Arquitectura de Integración
 
-![Arquitectura](diagrams/arquitectura_sigp_llull.png)
+
+<img width="2720" height="3280" alt="Arquitectura_Integracion_SIGP_LLULL" src="https://github.com/user-attachments/assets/41813e96-e745-4250-a485-fcc44da20325" />
+
 
 ---
 
 ## Modelo de Datos
 
-![Modelo ER](diagrams/modelo_er_3nf.png)
+<img width="1536" height="1024" alt="ER_SIGP_LLULL" src="https://github.com/user-attachments/assets/e67a44a9-fbb5-44cb-b177-c2d6ad1314e9" />
+
 
 El modelo se encuentra normalizado hasta Tercera Forma Normal (3NF) para minimizar redundancias y garantizar integridad referencial.
 
