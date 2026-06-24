@@ -1,4 +1,3 @@
-# sigp-llull-data-quality
 # Análisis y Diseño de Controles de Calidad para una Integración Real entre Sistemas de RRHH
 
 ## Portfolio Project
