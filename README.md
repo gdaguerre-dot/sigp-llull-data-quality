@@ -1,6 +1,6 @@
 # Análisis y Diseño de Controles de Calidad para una Integración Real entre Sistemas de RRHH
 
-**Proyecto de Portafolio**
+**Portfolio Project**
 
 **SQL · Data Quality · Data Governance · Data Modeling · Business Analysis**
 
@@ -10,11 +10,14 @@
 
 Este proyecto presenta un caso de estudio basado en una integración real entre sistemas de gestión de personal utilizados dentro del ámbito educativo.
 
-La iniciativa surge a partir del análisis de procesos de sincronización entre **SIGP (Sistema Integrado de Gestión de Personal)**, fuente oficial de información de empleados, y **LLULL**, plataforma encargada de gestionar usuarios, perfiles y permisos dentro del entorno educativo.
+La iniciativa surge a partir del análisis funcional de los procesos de sincronización entre:
+
+* **SIGP (Sistema Integrado de Gestión de Personal)**, fuente oficial de información de empleados.
+* **LLULL**, plataforma encargada de gestionar usuarios, perfiles y permisos dentro del entorno educativo.
 
 El objetivo consiste en diseñar controles de calidad de datos que permitan validar la información proveniente de sistemas externos antes de ser consumida por sistemas dependientes.
 
-Por motivos de confidencialidad, los datos originales no son publicados. Se utilizan estructuras anonimizadas y ejemplos representativos que permiten reproducir la lógica del proyecto sin exponer información sensible.
+Por motivos de confidencialidad, los datos originales no son publicados. Se utilizan estructuras anonimizadas y documentación representativa que permiten reproducir el enfoque analítico sin exponer información sensible.
 
 ---
 
@@ -35,13 +38,13 @@ Errores en empleados, puestos, cargos o fechas pueden provocar:
 
 ## Pregunta de Negocio
 
-**¿Cómo garantizar que los datos recibidos desde sistemas externos sean consistentes antes de ser utilizados por otros sistemas?**
+**¿Cómo garantizar que los datos recibidos desde sistemas externos sean consistentes, íntegros y confiables antes de ser utilizados por otros sistemas?**
 
 ---
 
 ## Arquitectura de Integración
 
-![Arquitectura de Integración](images/arquitectura_integracion.png)
+![Arquitectura](images/arquitectura_sigp_llull.png)
 
 La integración analizada sigue un esquema de consumo de servicios web donde SIGP actúa como sistema fuente y LLULL como sistema consumidor.
 
@@ -51,38 +54,13 @@ Entre ambos sistemas se incorporan controles de calidad orientados a validar la 
 
 ## Modelo de Datos
 
-![Modelo ER](images/modelo_er.png)
+![Modelo ER](images/modelo_er_sigp_llull.png)
 
-El modelo se encuentra normalizado hasta Tercera Forma Normal (3NF), minimizando redundancias y garantizando la integridad referencial.
-
----
-
-## Fuentes de Datos Analizadas
-
-### getEmpleats
-
-Información maestra de empleados:
-
-* Identificador de empleado
-* Documento identificativo
-* Nombre y apellidos
-* Información de contacto
-* Centro de destino
-* Puesto asignado
-
-### getLlocTreballEmpleats
-
-Información relacionada con puestos de trabajo:
-
-* Puestos ocupados
-* Centros educativos
-* Fecha de toma de posesión
-* Fecha de cese
-* Vigencia de asignaciones
+El modelo se encuentra normalizado hasta Tercera Forma Normal (3NF) para minimizar redundancias y garantizar la integridad referencial.
 
 ---
 
-## Reglas de Calidad Implementadas
+## Framework de Calidad de Datos
 
 ### Unicidad
 
@@ -90,8 +68,9 @@ Un empleado debe poseer un identificador único.
 
 ### Integridad Referencial
 
-* Todo cargo debe existir en el catálogo oficial.
-* Todo puesto debe existir en el catálogo oficial.
+Todo puesto debe existir en su catálogo oficial.
+
+Todo cargo debe existir en su catálogo oficial.
 
 ### Consistencia Temporal
 
@@ -107,7 +86,7 @@ Los códigos utilizados deben existir en los catálogos maestros.
 
 ---
 
-## Validaciones SQL
+## Validaciones SQL Implementadas
 
 El proyecto incluye consultas SQL para detectar:
 
@@ -117,7 +96,7 @@ El proyecto incluye consultas SQL para detectar:
 * Fechas inconsistentes.
 * Empleados sin puesto vigente.
 
-### Archivos SQL incluidos
+### Archivos SQL
 
 ```text
 sql/
@@ -128,38 +107,30 @@ sql/
 └── 05_empleados_sin_puesto.sql
 ```
 
-Ejemplo:
-
-```sql
-SELECT
-    c_numide,
-    COUNT(*) AS cantidad
-FROM empleados
-GROUP BY c_numide
-HAVING COUNT(*) > 1;
-```
-
 ---
 
-## Evidencias del Análisis
+## Evidencias Técnicas
 
 ### Exploración de estructuras JSON
 
-![JSON Structure](images/json_structure.png)
+* Estructura de getEmpleats
+* Outline de getEmpleats
+* Estructura de getLlocTreballEmpleats
+* Outline de getLlocTreballEmpleats
 
-### Navegación de atributos mediante VS Code Outline
+### Consultas SQL
 
-![JSON Outline](images/json_outline.png)
-
-### Ejemplo de validación SQL
-
-![SQL Validation](images/sql_validation_example.png)
+* sql_01_nif_duplicados.png
+* sql_02_puestos_invalidos.png
+* sql_03_cargos_invalidos.png
+* sql_04_fechas_inconsistentes.png
+* sql_05_empleados_sin_puesto.png
 
 ---
 
 ## KPIs Propuestos
 
-| Indicador                    | Objetivo                            |
+| KPI                          | Objetivo                            |
 | ---------------------------- | ----------------------------------- |
 | % Empleados sincronizados    | Medir efectividad de la integración |
 | Empleados sin puesto vigente | Detectar incidencias                |
@@ -176,6 +147,7 @@ HAVING COUNT(*) > 1;
 * GitHub
 * Modelado de Datos
 * Documentación Técnica
+* Análisis Funcional
 
 ---
 
@@ -185,31 +157,47 @@ HAVING COUNT(*) > 1;
 * Data Governance
 * Data Modeling
 * Business Analysis
-* System Integration
-* Functional Analysis
+* SQL
+* Integración de Sistemas
+* Gestión de Riesgos
+* Análisis Funcional
 
 ---
 
 ## Estructura del Repositorio
 
 ```text
-├── README.md
-├── pdf/
-│   └── Proyecto_SIGP_LLULL_Data_Quality.pdf
-├── sql/
-│   ├── 01_nif_duplicados.sql
-│   ├── 02_puestos_invalidos.sql
-│   ├── 03_cargos_invalidos.sql
-│   ├── 04_fechas_inconsistentes.sql
-│   └── 05_empleados_sin_puesto.sql
-└── images/
+README.md
+
+pdf/
+└── Proyecto_SIGP_LLULL_Data_Quality.pdf
+
+sql/
+├── 01_nif_duplicados.sql
+├── 02_puestos_invalidos.sql
+├── 03_cargos_invalidos.sql
+├── 04_fechas_inconsistentes.sql
+└── 05_empleados_sin_puesto.sql
+
+images/
+├── arquitectura_sigp_llull.png
+├── modelo_er_sigp_llull.png
+├── json_getEmpleats_estructura.png
+├── json_getEmpleats_outline.png
+├── json_getLlocTreballEmpleats_estructura.png
+├── json_getLlocTreballEmpleats_outline.png
+├── sql_01_nif_duplicados.png
+├── sql_02_puestos_invalidos.png
+├── sql_03_cargos_invalidos.png
+├── sql_04_fechas_inconsistentes.png
+└── sql_05_empleados_sin_puesto.png
 ```
 
 ---
 
 ## Documentación Completa
 
-La documentación funcional y técnica completa se encuentra disponible en:
+La documentación detallada del proyecto se encuentra disponible en:
 
 ```text
 pdf/Proyecto_SIGP_LLULL_Data_Quality.pdf
@@ -219,15 +207,15 @@ pdf/Proyecto_SIGP_LLULL_Data_Quality.pdf
 
 ## Consideraciones de Confidencialidad
 
-Los conjuntos de datos originales utilizados durante el análisis contienen información sensible y no son publicados.
+Los datos originales utilizados durante el análisis contienen información sensible y no son publicados.
 
-Para preservar la privacidad y cumplir los principios de gobierno del dato, se utilizan ejemplos anonimizados que permiten reproducir la lógica del proyecto sin exponer información personal ni institucional.
+Para preservar la privacidad y cumplir los principios de gobierno del dato, se utilizan estructuras anonimizadas, diagramas y ejemplos representativos.
 
 ---
 
 ## Principales Aprendizajes
 
-* La calidad de los datos debe incorporarse desde el diseño de la integración.
+* La calidad de datos debe incorporarse desde el diseño de la integración.
 * Las integraciones requieren mecanismos de validación independientes.
 * SQL puede utilizarse como herramienta de auditoría y control.
 * La documentación funcional es tan importante como la implementación técnica.
@@ -239,12 +227,13 @@ Para preservar la privacidad y cumplir los principios de gobierno del dato, se u
 
 **Gerónimo Daguerre**
 
-Analista de Datos | SQL | Calidad de Datos | Gobernanza de Datos | Análisis de Negocio
+Analista de Datos · SQL · Data Quality · Data Governance · Business Analysis
 
 ---
 
 ## Licencia
 
-Proyecto desarrollado con fines educativos y de portafolio profesional.
+Proyecto desarrollado con fines educativos y de portfolio profesional.
 
 Los ejemplos incluidos son ilustrativos y no contienen información real ni datos personales identificables.
+
