@@ -122,6 +122,7 @@ HAVING COUNT(*) > 1;
 <img width="609" height="44" alt="WhatsApp Image 2026-06-24 at 12 14 55 PM" src="https://github.com/user-attachments/assets/8ac99ad4-7f5d-424c-ae9f-d96e5061475e" />
 <img width="332" height="570" alt="WhatsApp Image 2026-06-24 at 12 20 06 PM" src="https://github.com/user-attachments/assets/edd127fe-879a-4a12-87cb-7b8c8a7554a9" />
 <img width="388" height="190" alt="WhatsApp Image 2026-06-24 at 12 19 02 PM" src="https://github.com/user-attachments/assets/8204ccd3-01d5-4145-8aea-fee747704039" />
+<img width="676" height="673" alt="WhatsApp Image 2026-06-24 at 12 24 27 PM" src="https://github.com/user-attachments/assets/0752a150-33ef-4eb4-8697-b4ab9796ab73" />
 
 ### Validaciones SQL
 
