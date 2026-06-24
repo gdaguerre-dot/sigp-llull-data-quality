@@ -225,7 +225,7 @@ Para preservar la privacidad y cumplir principios de gobierno del dato, se utili
 
 **Gerónimo Daguerre**
 
-Data Analyst Junior | SQL | Data Quality | Data Governance | Business Analysis
+Data Analyst| SQL | Data Quality | Data Governance | Business Analysis
 
 ---
 
