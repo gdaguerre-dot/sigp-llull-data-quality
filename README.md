@@ -1,8 +1,8 @@
 # Análisis y Diseño de Controles de Calidad para una Integración Real entre Sistemas de RRHH
 
-**Portfolio Project**
+**Proyecto de Portafolio**
 
-SQL · Data Quality · Data Governance · Data Modeling · Business Analysis
+**SQL · Data Quality · Data Governance · Data Modeling · Business Analysis**
 
 ---
 
@@ -31,7 +31,9 @@ Errores en empleados, puestos, cargos o fechas pueden provocar:
 * Pérdida de trazabilidad.
 * Problemas de sincronización entre sistemas.
 
-### Pregunta de Negocio
+---
+
+## Pregunta de Negocio
 
 **¿Cómo garantizar que los datos recibidos desde sistemas externos sean consistentes antes de ser utilizados por otros sistemas?**
 
@@ -39,7 +41,7 @@ Errores en empleados, puestos, cargos o fechas pueden provocar:
 
 ## Arquitectura de Integración
 
-![Arquitectura](diagrams/Arquitectura_Integracion_SIGP_LLULL.png)
+![Arquitectura de Integración](images/arquitectura_integracion.png)
 
 La integración analizada sigue un esquema de consumo de servicios web donde SIGP actúa como sistema fuente y LLULL como sistema consumidor.
 
@@ -49,9 +51,34 @@ Entre ambos sistemas se incorporan controles de calidad orientados a validar la 
 
 ## Modelo de Datos
 
-![Modelo ER](diagrams/ER_SIGP_LLULL.png)
+![Modelo ER](images/modelo_er.png)
 
-El modelo se encuentra normalizado hasta Tercera Forma Normal (3NF) para minimizar redundancias y garantizar la integridad referencial.
+El modelo se encuentra normalizado hasta Tercera Forma Normal (3NF), minimizando redundancias y garantizando la integridad referencial.
+
+---
+
+## Fuentes de Datos Analizadas
+
+### getEmpleats
+
+Información maestra de empleados:
+
+* Identificador de empleado
+* Documento identificativo
+* Nombre y apellidos
+* Información de contacto
+* Centro de destino
+* Puesto asignado
+
+### getLlocTreballEmpleats
+
+Información relacionada con puestos de trabajo:
+
+* Puestos ocupados
+* Centros educativos
+* Fecha de toma de posesión
+* Fecha de cese
+* Vigencia de asignaciones
 
 ---
 
@@ -63,9 +90,8 @@ Un empleado debe poseer un identificador único.
 
 ### Integridad Referencial
 
-Todo cargo debe existir en su catálogo oficial.
-
-Todo puesto debe existir en su catálogo oficial.
+* Todo cargo debe existir en el catálogo oficial.
+* Todo puesto debe existir en el catálogo oficial.
 
 ### Consistencia Temporal
 
@@ -115,24 +141,25 @@ HAVING COUNT(*) > 1;
 
 ---
 
-## Evidencias
+## Evidencias del Análisis
 
 ### Exploración de estructuras JSON
 
-<img width="609" height="44" alt="WhatsApp Image 2026-06-24 at 12 14 55 PM" src="https://github.com/user-attachments/assets/8ac99ad4-7f5d-424c-ae9f-d96e5061475e" />
-<img width="332" height="570" alt="WhatsApp Image 2026-06-24 at 12 20 06 PM" src="https://github.com/user-attachments/assets/edd127fe-879a-4a12-87cb-7b8c8a7554a9" />
-<img width="388" height="190" alt="WhatsApp Image 2026-06-24 at 12 19 02 PM" src="https://github.com/user-attachments/assets/8204ccd3-01d5-4145-8aea-fee747704039" />
-<img width="676" height="673" alt="WhatsApp Image 2026-06-24 at 12 24 27 PM" src="https://github.com/user-attachments/assets/0752a150-33ef-4eb4-8697-b4ab9796ab73" />
+![JSON Structure](images/json_structure.png)
 
-### Validaciones SQL
+### Navegación de atributos mediante VS Code Outline
 
-![SQL](images/sql_validation.png)
+![JSON Outline](images/json_outline.png)
+
+### Ejemplo de validación SQL
+
+![SQL Validation](images/sql_validation_example.png)
 
 ---
 
 ## KPIs Propuestos
 
-| KPI                          | Objetivo                            |
+| Indicador                    | Objetivo                            |
 | ---------------------------- | ----------------------------------- |
 | % Empleados sincronizados    | Medir efectividad de la integración |
 | Empleados sin puesto vigente | Detectar incidencias                |
@@ -158,8 +185,8 @@ HAVING COUNT(*) > 1;
 * Data Governance
 * Data Modeling
 * Business Analysis
-* Integración de Sistemas
-* Análisis Funcional
+* System Integration
+* Functional Analysis
 
 ---
 
@@ -170,8 +197,11 @@ HAVING COUNT(*) > 1;
 ├── pdf/
 │   └── Proyecto_SIGP_LLULL_Data_Quality.pdf
 ├── sql/
-├── sample_data/
-├── diagrams/
+│   ├── 01_nif_duplicados.sql
+│   ├── 02_puestos_invalidos.sql
+│   ├── 03_cargos_invalidos.sql
+│   ├── 04_fechas_inconsistentes.sql
+│   └── 05_empleados_sin_puesto.sql
 └── images/
 ```
 
@@ -179,21 +209,13 @@ HAVING COUNT(*) > 1;
 
 ## Documentación Completa
 
-La documentación detallada del proyecto se encuentra disponible en:
+La documentación funcional y técnica completa se encuentra disponible en:
 
 ```text
 pdf/Proyecto_SIGP_LLULL_Data_Quality.pdf
 ```
 
 ---
-
-# Sample Data
-
-Los datasets originales utilizados durante el análisis contienen información sensible y no son publicados.
-
-Las estructuras analizadas provinieron de servicios web de RRHH utilizados en un entorno institucional.
-
-Las consultas SQL incluidas en este repositorio fueron diseñadas a partir de estructuras reales previamente anonimizadas.
 
 ## Consideraciones de Confidencialidad
 
@@ -217,12 +239,12 @@ Para preservar la privacidad y cumplir los principios de gobierno del dato, se u
 
 **Gerónimo Daguerre**
 
-Analista de Datos | SQL | Data Quality | Data Governance | Business Analysis
+Analista de Datos | SQL | Calidad de Datos | Gobernanza de Datos | Análisis de Negocio
 
 ---
 
 ## Licencia
 
-Proyecto desarrollado con fines educativos y de portfolio profesional.
+Proyecto desarrollado con fines educativos y de portafolio profesional.
 
 Los ejemplos incluidos son ilustrativos y no contienen información real ni datos personales identificables.
