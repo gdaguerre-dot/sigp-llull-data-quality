@@ -12,3 +12,11 @@ FROM empleados e
 LEFT JOIN cargos c
     ON e.c_cuerpo = c.ccargo
 WHERE c.ccargo IS NULL;
+
+SELECT
+    e.x_empleado,
+    e.c_cuerpo
+FROM empleados e
+LEFT JOIN cargos c
+       ON e.c_cuerpo = c.ccargo
+WHERE c.ccargo IS NULL;
