@@ -187,6 +187,14 @@ pdf/Proyecto_SIGP_LLULL_Data_Quality.pdf
 
 ---
 
+# Sample Data
+
+Los datasets originales utilizados durante el análisis contienen información sensible y no son publicados.
+
+Las estructuras analizadas provinieron de servicios web de RRHH utilizados en un entorno institucional.
+
+Las consultas SQL incluidas en este repositorio fueron diseñadas a partir de estructuras reales previamente anonimizadas.
+
 ## Consideraciones de Confidencialidad
 
 Los conjuntos de datos originales utilizados durante el análisis contienen información sensible y no son publicados.
