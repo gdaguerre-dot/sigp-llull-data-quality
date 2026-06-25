@@ -1,7 +1,5 @@
 # Análisis y Diseño de Controles de Calidad para una Integración Real entre Sistemas de RRHH
 
-**Portfolio Project**
-
 **SQL · Data Quality · Data Governance · Data Modeling · Business Analysis**
 
 ---
