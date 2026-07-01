@@ -7,10 +7,10 @@ Completitud
 Nota:
 Se considera "puesto vigente" aquel cuya fecha de toma de posesión
 ya se cumplió y cuya fecha de cese aún no ocurrió (o no tiene cese
-registrado). Esta lógica reproduce el control descrito en el caso
-de riesgo funcional 10.1 del documento maestro, donde se identificó
-que la ausencia de este filtro podía dejar fuera de la sincronización
-a empleados activos.
+registrado, representado aquí como '31/12/9999'). Esta lógica reproduce
+el control descrito en el caso de riesgo funcional 10.1 del documento
+maestro, donde se identificó que la ausencia de este filtro podía dejar
+fuera de la sincronización a empleados activos.
 */
 
 SELECT
