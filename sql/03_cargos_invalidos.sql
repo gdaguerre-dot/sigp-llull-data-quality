@@ -1,9 +1,12 @@
 /*
 Objetivo:
 Detectar cuerpos inexistentes en el catálogo oficial.
-
 Dimensión de calidad:
 Validez
+
+Nota:
+La tabla origen conserva el nombre histórico "cargos", aunque en este
+sistema almacena el catálogo de cuerpos del empleado.
 */
 
 SELECT
