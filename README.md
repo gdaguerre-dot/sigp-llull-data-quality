@@ -21,7 +21,7 @@ El objetivo fue diseñar controles de calidad de datos que permitan validar la i
 
 ## Problema de negocio
 
-Errores en empleados, puestos, cargos o fechas dentro de la integración pueden provocar usuarios sin acceso, asignaciones incorrectas de perfiles, incidencias operativas y pérdida de trazabilidad.
+Errores en empleados, puestos, cargos o fechas dentro de la integración pueden provocar que los usuarios queden sin acceso, asignaciones incorrectas de perfiles, incidencias operativas y pérdida de trazabilidad.
 
 **Pregunta de negocio:** ¿Cómo garantizar que los datos recibidos desde un sistema externo sean consistentes, íntegros y confiables antes de ser utilizados por otro sistema?
 
