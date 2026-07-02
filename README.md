@@ -47,7 +47,7 @@ El detalle completo de cada etapa, incluyendo el análisis funcional, el modelo 
 
 | Indicador | Objetivo |
 |---|---|
-| % empleados sincronizados | Medir efectividad de la integración |
+| % Empleados sincronizados | Medir efectividad de la integración |
 | Empleados sin puesto vigente | Detectar incidencias |
 | Incidencias por carga | Medir calidad global |
 
